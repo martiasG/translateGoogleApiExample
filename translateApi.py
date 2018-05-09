@@ -11,12 +11,9 @@ def doTranslate():
     translations = []
 
     for locale in content['target_language']:
-
-        translations.append('<data name="{}" xml:space="preserve">\
-                                <value>{}</value>\
-                            </data>'
-            .format(tc.translate(content['text'], target_language=locale)['translatedText'],
-                    content['text']))
+        translations.append("<data name='{}' xml:space='preserve'> <value>{}</value> </data>"
+                    .format(content['key'],
+                    tc.translate(content['text'], target_language=locale)['translatedText']))
         data = {
             'original_text': content['text'],
             'translation': translations}
