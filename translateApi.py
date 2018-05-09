@@ -9,9 +9,9 @@ def doTranslate():
     print(content)
     tc = translate.Client()
     translations = []
-
+    
     for locale in content['target_language']:
-        translations.append("<data name='{}' xml:space='preserve'> <value>{}</value> </data>"
+        translations.append("<data name='{}' xml:space='preserve'><value>{}</value></data>"
                     .format(content['key'],
                     tc.translate(content['text'], target_language=locale)['translatedText']))
         data = {
